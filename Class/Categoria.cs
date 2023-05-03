@@ -72,6 +72,23 @@ namespace Tarefa_SalvarMySql.Class
             }
             return verificar;
         }
+
+        public string excluir(string id)
+        {
+            try
+            {
+                MySqlConnection conn = Conexao.obterConexao();
+                string sql = "DELETE FROM categoria WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                return "Categoria excluída";
+            }
+            catch (Exception e)
+            {
+                return "erro: " + e.Message;
+            }
+        }
     }
 }
 

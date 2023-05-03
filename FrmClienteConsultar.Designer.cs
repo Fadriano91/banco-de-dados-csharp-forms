@@ -37,6 +37,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblIdade
@@ -61,6 +62,7 @@
             // 
             // txtIdade
             // 
+            this.txtIdade.BackColor = System.Drawing.Color.White;
             this.txtIdade.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdade.Location = new System.Drawing.Point(239, 96);
             this.txtIdade.Name = "txtIdade";
@@ -82,6 +84,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.BackColor = System.Drawing.Color.White;
             this.txtNome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(26, 96);
             this.txtNome.Name = "txtNome";
@@ -119,6 +122,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.BackColor = System.Drawing.Color.White;
             this.txtEmail.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(26, 152);
             this.txtEmail.Name = "txtEmail";
@@ -126,12 +130,26 @@
             this.txtEmail.Size = new System.Drawing.Size(278, 26);
             this.txtEmail.TabIndex = 18;
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.Firebrick;
+            this.btnExcluir.Enabled = false;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Location = new System.Drawing.Point(26, 243);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(278, 41);
+            this.btnExcluir.TabIndex = 20;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // FrmClienteConsultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.ClientSize = new System.Drawing.Size(320, 262);
+            this.ClientSize = new System.Drawing.Size(320, 316);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblIdade);
@@ -159,5 +177,6 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

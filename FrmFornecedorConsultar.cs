@@ -11,40 +11,40 @@ using Tarefa_SalvarMySql.Class;
 
 namespace Tarefa_SalvarMySql
 {
-    public partial class FrmClienteConsultar : Form
+    public partial class FrmFornecedorConsultar : Form
     {
-        public FrmClienteConsultar()
+        public FrmFornecedorConsultar()
         {
             InitializeComponent();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            Cliente cli = new Cliente();
-            cli.Id = Int32.Parse(txtId.Text);
+            Fornecedor forn = new Fornecedor();
+            forn.Id = Int32.Parse(txtId.Text);
 
-            if (Cliente.pesquisar(cli))
+            if (Fornecedor.pesquisar(forn))
             {
-                txtNome.Text = cli.Nome;
-                txtIdade.Text = cli.Idade.ToString();
-                txtEmail.Text = cli.Email;
-                txtNome.BackColor = Color.Goldenrod;
-                txtNome.ForeColor = Color.Black;
-                txtIdade.BackColor = Color.Goldenrod;
-                txtIdade.ForeColor = Color.Black;
+                txtRazaoSocial.Text = forn.RazaoSocial;
+                txtCnpj.Text = forn.Cnpj.ToString();
+                txtEmail.Text = forn.Email;
+                txtRazaoSocial.BackColor = Color.Goldenrod;
+                txtRazaoSocial.ForeColor = Color.Black;
+                txtCnpj.BackColor = Color.Goldenrod;
+                txtCnpj.ForeColor = Color.Black;
                 txtEmail.BackColor = Color.Goldenrod;
                 txtEmail.ForeColor = Color.Black;
                 btnExcluir.Enabled = true;
             }
             else
             {
-                txtNome.Text = "Cliente não encontrado!";
-                txtIdade.Text = "-";
+                txtRazaoSocial.Text = "Fornecedor não encontrado!";
+                txtCnpj.Text = "-";
                 txtEmail.Text = "-";
-                txtNome.BackColor = Color.Salmon;
-                txtNome.ForeColor = Color.Black;
-                txtIdade.BackColor = Color.Salmon;
-                txtIdade.ForeColor = Color.Black;
+                txtRazaoSocial.BackColor = Color.Salmon;
+                txtRazaoSocial.ForeColor = Color.Black;
+                txtCnpj.BackColor = Color.Salmon;
+                txtCnpj.ForeColor = Color.Black;
                 txtEmail.BackColor = Color.Salmon;
                 txtEmail.ForeColor = Color.Black;
                 btnExcluir.Enabled = false;
@@ -54,15 +54,15 @@ namespace Tarefa_SalvarMySql
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            string message = "Deseja realmente excluir o cliente " + txtNome.Text + " ?";
-            string caption = "Exclusão de Cliente";
+            string message = "Deseja realmente excluir o fornecedor " + txtRazaoSocial.Text + " ?";
+            string caption = "Exclusão de Fornecedor";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                Cliente cli = new Cliente();
-                MessageBox.Show(cli.excluir(txtId.Text));
+                Fornecedor forn= new Fornecedor();
+                MessageBox.Show(forn.excluir(txtId.Text));
 
                 limpar();
 
@@ -77,10 +77,10 @@ namespace Tarefa_SalvarMySql
         private void limpar()
         {
             txtId.Clear();
-            txtNome.Clear();
-            txtNome.BackColor = Color.White;
-            txtIdade.Clear();
-            txtIdade.BackColor = Color.White;
+            txtRazaoSocial.Clear();
+            txtRazaoSocial.BackColor = Color.White;
+            txtCnpj.Clear();
+            txtCnpj.BackColor = Color.White;
             txtEmail.Clear();
             txtEmail.BackColor = Color.White;
             txtId.Focus();

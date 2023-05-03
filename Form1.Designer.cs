@@ -32,18 +32,19 @@
             this.menuCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.itemClienteCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.itemClienteListar = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemClienteConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.itemCategoriaCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.itemCategoriaListar = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemCategoriaConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFornecedor = new System.Windows.Forms.ToolStripMenuItem();
             this.itemFornecedorCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.itemFornecedorListar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.itemProdutoCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.itemProdutoListar = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemCategoriaConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.itemProdutoConsultar = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemClienteConsultar = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemFornecedorConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,16 +74,23 @@
             // itemClienteCadastrar
             // 
             this.itemClienteCadastrar.Name = "itemClienteCadastrar";
-            this.itemClienteCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.itemClienteCadastrar.Size = new System.Drawing.Size(125, 22);
             this.itemClienteCadastrar.Text = "Cadastrar";
             this.itemClienteCadastrar.Click += new System.EventHandler(this.itemClienteCadastrar_Click);
             // 
             // itemClienteListar
             // 
             this.itemClienteListar.Name = "itemClienteListar";
-            this.itemClienteListar.Size = new System.Drawing.Size(180, 22);
+            this.itemClienteListar.Size = new System.Drawing.Size(125, 22);
             this.itemClienteListar.Text = "Listar";
             this.itemClienteListar.Click += new System.EventHandler(this.itemClienteListar_Click);
+            // 
+            // itemClienteConsultar
+            // 
+            this.itemClienteConsultar.Name = "itemClienteConsultar";
+            this.itemClienteConsultar.Size = new System.Drawing.Size(125, 22);
+            this.itemClienteConsultar.Text = "Consultar";
+            this.itemClienteConsultar.Click += new System.EventHandler(this.itemClienteConsultar_Click);
             // 
             // menuCategoria
             // 
@@ -97,22 +105,30 @@
             // itemCategoriaCadastrar
             // 
             this.itemCategoriaCadastrar.Name = "itemCategoriaCadastrar";
-            this.itemCategoriaCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.itemCategoriaCadastrar.Size = new System.Drawing.Size(125, 22);
             this.itemCategoriaCadastrar.Text = "Cadastrar";
             this.itemCategoriaCadastrar.Click += new System.EventHandler(this.itemCategoriaCadastrar_Click);
             // 
             // itemCategoriaListar
             // 
             this.itemCategoriaListar.Name = "itemCategoriaListar";
-            this.itemCategoriaListar.Size = new System.Drawing.Size(180, 22);
+            this.itemCategoriaListar.Size = new System.Drawing.Size(125, 22);
             this.itemCategoriaListar.Text = "Listar";
             this.itemCategoriaListar.Click += new System.EventHandler(this.itemCategoriaListar_Click);
+            // 
+            // itemCategoriaConsultar
+            // 
+            this.itemCategoriaConsultar.Name = "itemCategoriaConsultar";
+            this.itemCategoriaConsultar.Size = new System.Drawing.Size(125, 22);
+            this.itemCategoriaConsultar.Text = "Consultar";
+            this.itemCategoriaConsultar.Click += new System.EventHandler(this.itemCategoriaConsultar_Click);
             // 
             // menuFornecedor
             // 
             this.menuFornecedor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemFornecedorCadastrar,
-            this.itemFornecedorListar});
+            this.itemFornecedorListar,
+            this.itemFornecedorConsultar});
             this.menuFornecedor.Name = "menuFornecedor";
             this.menuFornecedor.Size = new System.Drawing.Size(79, 20);
             this.menuFornecedor.Text = "Fornecedor";
@@ -120,14 +136,14 @@
             // itemFornecedorCadastrar
             // 
             this.itemFornecedorCadastrar.Name = "itemFornecedorCadastrar";
-            this.itemFornecedorCadastrar.Size = new System.Drawing.Size(124, 22);
+            this.itemFornecedorCadastrar.Size = new System.Drawing.Size(180, 22);
             this.itemFornecedorCadastrar.Text = "Cadastrar";
             this.itemFornecedorCadastrar.Click += new System.EventHandler(this.itemFornecedorCadastrar_Click);
             // 
             // itemFornecedorListar
             // 
             this.itemFornecedorListar.Name = "itemFornecedorListar";
-            this.itemFornecedorListar.Size = new System.Drawing.Size(124, 22);
+            this.itemFornecedorListar.Size = new System.Drawing.Size(180, 22);
             this.itemFornecedorListar.Text = "Listar";
             this.itemFornecedorListar.Click += new System.EventHandler(this.itemFornecedorListar_Click);
             // 
@@ -144,37 +160,30 @@
             // itemProdutoCadastrar
             // 
             this.itemProdutoCadastrar.Name = "itemProdutoCadastrar";
-            this.itemProdutoCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.itemProdutoCadastrar.Size = new System.Drawing.Size(125, 22);
             this.itemProdutoCadastrar.Text = "Cadastrar";
             this.itemProdutoCadastrar.Click += new System.EventHandler(this.itemProdutoCadastrar_Click);
             // 
             // itemProdutoListar
             // 
             this.itemProdutoListar.Name = "itemProdutoListar";
-            this.itemProdutoListar.Size = new System.Drawing.Size(180, 22);
+            this.itemProdutoListar.Size = new System.Drawing.Size(125, 22);
             this.itemProdutoListar.Text = "Listar";
             this.itemProdutoListar.Click += new System.EventHandler(this.itemProdutoListar_Click);
-            // 
-            // itemCategoriaConsultar
-            // 
-            this.itemCategoriaConsultar.Name = "itemCategoriaConsultar";
-            this.itemCategoriaConsultar.Size = new System.Drawing.Size(180, 22);
-            this.itemCategoriaConsultar.Text = "Consultar";
-            this.itemCategoriaConsultar.Click += new System.EventHandler(this.itemCategoriaConsultar_Click);
             // 
             // itemProdutoConsultar
             // 
             this.itemProdutoConsultar.Name = "itemProdutoConsultar";
-            this.itemProdutoConsultar.Size = new System.Drawing.Size(180, 22);
+            this.itemProdutoConsultar.Size = new System.Drawing.Size(125, 22);
             this.itemProdutoConsultar.Text = "Consultar";
             this.itemProdutoConsultar.Click += new System.EventHandler(this.itemProdutoConsultar_Click);
             // 
-            // itemClienteConsultar
+            // itemFornecedorConsultar
             // 
-            this.itemClienteConsultar.Name = "itemClienteConsultar";
-            this.itemClienteConsultar.Size = new System.Drawing.Size(180, 22);
-            this.itemClienteConsultar.Text = "Consultar";
-            this.itemClienteConsultar.Click += new System.EventHandler(this.itemClienteConsultar_Click);
+            this.itemFornecedorConsultar.Name = "itemFornecedorConsultar";
+            this.itemFornecedorConsultar.Size = new System.Drawing.Size(180, 22);
+            this.itemFornecedorConsultar.Text = "Consultar";
+            this.itemFornecedorConsultar.Click += new System.EventHandler(this.itemFornecedorConsultar_Click);
             // 
             // FrmPrincipal
             // 
@@ -211,6 +220,7 @@
         private System.Windows.Forms.ToolStripMenuItem itemCategoriaConsultar;
         private System.Windows.Forms.ToolStripMenuItem itemProdutoConsultar;
         private System.Windows.Forms.ToolStripMenuItem itemClienteConsultar;
+        private System.Windows.Forms.ToolStripMenuItem itemFornecedorConsultar;
     }
 }
 

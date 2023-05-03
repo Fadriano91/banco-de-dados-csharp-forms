@@ -49,6 +49,7 @@ namespace Tarefa_SalvarMySql.Class
                     lista += "ID: " + res["id"].ToString();
                     lista += " - Produto: " + res["nome"].ToString();
                     lista += " - Quantidade no Estoque: " + res["quantidadeEstoque"].ToString();
+                    lista += "\n";
                 }
             }
             return lista;
@@ -73,6 +74,23 @@ namespace Tarefa_SalvarMySql.Class
                 }
             }
             return verificar;
+        }
+
+        public string excluir(string id)
+        {
+            try
+            {
+                MySqlConnection conn = Conexao.obterConexao();
+                string sql = "DELETE FROM produto WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                return "Produto excluído";
+            }
+            catch (Exception e)
+            {
+                return "erro: " + e.Message;
+            }
         }
     }
 }

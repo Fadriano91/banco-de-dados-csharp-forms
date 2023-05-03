@@ -81,5 +81,22 @@ namespace Tarefa_SalvarMySql
             }
             return verificar;
         }
+
+        public string excluir(string id)
+        {
+            try
+            {
+                MySqlConnection conn = Conexao.obterConexao();
+                string sql = "DELETE FROM cliente WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                return "Cliente excluído";
+            }
+            catch (Exception e)
+            {
+                return "erro: " + e.Message;
+            }
+        }
     }
 }

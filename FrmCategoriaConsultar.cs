@@ -28,14 +28,45 @@ namespace Tarefa_SalvarMySql
                 txtNome.Text = cat.Nome;
                 txtNome.BackColor = Color.Goldenrod;
                 txtNome.ForeColor = Color.Black;
+                btnExcluir.Enabled = true;
             }
             else
             {
                 txtNome.Text = "Categoria não encontrada!";
                 txtNome.BackColor = Color.Salmon;
                 txtNome.ForeColor = Color.Black;
+                btnExcluir.Enabled = false;
             }
             txtId.Focus();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            string message = "Deseja realmente excluir a Categoria " + txtNome.Text + " ?";
+            string caption = "Exclusão de Categoria";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Categoria cat = new Categoria();
+                MessageBox.Show(cat.excluir(txtId.Text));
+                limpar();
+            }
+            else
+            {
+                MessageBox.Show("Cancelado");
+            }
+            limpar();
+        }
+
+        private void limpar()
+        {
+            txtId.Clear();
+            txtNome.Clear();
+            txtNome.BackColor = Color.White;
+            txtId.Focus();
+            btnExcluir.Enabled = false;
         }
     }
 }

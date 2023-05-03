@@ -104,6 +104,19 @@ namespace Tarefa_SalvarMySql
             MessageBox.Show(Fornecedor.listar());
         }
 
+        private void itemFornecedorConsultar_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FrmFornecedorConsultar>().Count() > 0)
+            {
+                Application.OpenForms.OfType<FrmFornecedorConsultar>().First().Focus();
+            }
+            else
+            {
+                FrmFornecedorConsultar frm = new FrmFornecedorConsultar();
+                frm.Show();
+            }
+        }
+
         // menuProduto
 
         private void itemProdutoCadastrar_Click(object sender, EventArgs e)

@@ -35,6 +35,7 @@
             this.txtQuantidadeEstoque = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblQuantidadeEstoque = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPesquisar
@@ -105,12 +106,26 @@
             this.lblQuantidadeEstoque.TabIndex = 10;
             this.lblQuantidadeEstoque.Text = "QntdEstoque";
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.Firebrick;
+            this.btnExcluir.Enabled = false;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Location = new System.Drawing.Point(28, 206);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(278, 41);
+            this.btnExcluir.TabIndex = 21;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // FrmProdutoConsultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.ClientSize = new System.Drawing.Size(328, 229);
+            this.ClientSize = new System.Drawing.Size(328, 266);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.lblQuantidadeEstoque);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.txtQuantidadeEstoque);
@@ -134,5 +149,6 @@
         private System.Windows.Forms.TextBox txtQuantidadeEstoque;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblQuantidadeEstoque;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

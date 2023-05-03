@@ -59,5 +59,44 @@ namespace Tarefa_SalvarMySql.Class
             return lista;
         }
 
+        public static Boolean pesquisar(Fornecedor f)
+        {
+            MySqlConnection conn = Conexao.obterConexao();
+            string sql = "SELECT forn.* FROM fornecedor forn WHERE forn.id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@id", f.Id);
+            MySqlDataReader res = cmd.ExecuteReader();
+            Boolean verificar = false;
+            if (res.HasRows)
+            {
+                if (res.Read())
+                {
+                    f.Id = Int32.Parse(res["id"].ToString());
+                    f.RazaoSocial = res["razaoSocial"].ToString();
+                    f.Email = res["email"].ToString();
+                    f.Cnpj = Convert.ToInt64(Convert.ToSingle(res["cnpj"]));
+                    verificar = true;
+                }
+            }
+            return verificar;
+        }
+
+        public string excluir(string id)
+        {
+            try
+            {
+                MySqlConnection conn = Conexao.obterConexao();
+                string sql = "DELETE FROM fornecedor WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                return "Fornecedor excluído";
+            }
+            catch (Exception e)
+            {
+                return "erro: " + e.Message;
+            }
+        }
+
     }
 }
