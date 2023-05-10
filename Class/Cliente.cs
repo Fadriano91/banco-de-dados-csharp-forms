@@ -98,5 +98,25 @@ namespace Tarefa_SalvarMySql
                 return "erro: " + e.Message;
             }
         }
+
+        public static string editar(Categoria c)
+        {
+            try
+            {
+                MySqlConnection conn = Conexao.obterConexao();
+                string sql = "UPDATE categoria SET nome  = @nome WHERE id = @id";
+                //string sql = "UPDATE categoria SET nome  = @nome, email = @email WHERE id = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", c.Id);
+                cmd.Parameters.AddWithValue("@nome", c.Nome);
+                //cmd.Parameters.AddWithValue("@email", c.Email);
+                cmd.ExecuteNonQuery();
+                return "Categoria editada com sucesso";
+            }
+            catch (Exception e)
+            {
+                return "erro: " + e.Message;
+            }
+        }
     }
 }

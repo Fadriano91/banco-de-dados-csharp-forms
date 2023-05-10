@@ -60,6 +60,28 @@ namespace Tarefa_SalvarMySql
             limpar();
         }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            string message = "Deseja realmente editar a Categoria " + txtNome.Text + " ?";
+            string caption = "Edição de Categoria";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Categoria cat = new Categoria();
+                cat.Id = Int32.Parse(txtId.Text);
+                cat.Nome = txtNome.Text;
+                MessageBox.Show(Categoria.editar(cat));
+                limpar();
+            }
+            else
+            {
+                MessageBox.Show("Cancelado");
+            }
+            limpar();
+        }
+
         private void limpar()
         {
             txtId.Clear();
