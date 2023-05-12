@@ -28,7 +28,10 @@ namespace Tarefa_SalvarMySql
                 txtNome.Text = cat.Nome;
                 txtNome.BackColor = Color.Goldenrod;
                 txtNome.ForeColor = Color.Black;
+                txtNome.ReadOnly = false;
+
                 btnExcluir.Enabled = true;
+                btnEditar.Enabled = true;
             }
             else
             {
@@ -36,13 +39,14 @@ namespace Tarefa_SalvarMySql
                 txtNome.BackColor = Color.Salmon;
                 txtNome.ForeColor = Color.Black;
                 btnExcluir.Enabled = false;
+                btnEditar.Enabled = false;
             }
             txtId.Focus();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            string message = "Deseja realmente excluir a Categoria " + txtNome.Text + " ?";
+            string message = "Deseja realmente excluir a Categoria '" + txtNome.Text + "' ?";
             string caption = "Exclusão de Categoria";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
@@ -62,7 +66,7 @@ namespace Tarefa_SalvarMySql
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            string message = "Deseja realmente editar a Categoria " + txtNome.Text + " ?";
+            string message = "Deseja realmente editar a Categoria '" + txtNome.Text + "' ?";
             string caption = "Edição de Categoria";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
@@ -87,8 +91,11 @@ namespace Tarefa_SalvarMySql
             txtId.Clear();
             txtNome.Clear();
             txtNome.BackColor = Color.White;
+            txtNome.ReadOnly = true;
             txtId.Focus();
             btnExcluir.Enabled = false;
+            btnEditar.Enabled = false;
         }
+
     }
 }

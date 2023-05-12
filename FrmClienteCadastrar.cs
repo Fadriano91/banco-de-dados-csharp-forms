@@ -25,7 +25,7 @@ namespace Tarefa_SalvarMySql
             cli.Nome = txtNome.Text;
             cli.Email = txtEmail.Text;
             cli.Idade = idade;
-            MessageBox.Show(Cliente.salvar(cli));
+            MessageBox.Show(Cliente.salvarOuEditar(cli));
             limpar();
         }
 

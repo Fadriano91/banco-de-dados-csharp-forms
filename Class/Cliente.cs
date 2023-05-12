@@ -31,7 +31,7 @@ namespace Tarefa_SalvarMySql
                 cmd.Parameters.AddWithValue("@email", c.Email);
                 cmd.Parameters.AddWithValue("@idade", c.Idade);
                 cmd.ExecuteNonQuery();
-                return "salvo com sucesso";
+                return "Cliente salvo com sucesso";
             }
             catch (Exception ex)
             {
@@ -99,23 +99,59 @@ namespace Tarefa_SalvarMySql
             }
         }
 
-        public static string editar(Categoria c)
+        public string editar(Cliente c)
         {
             try
             {
                 MySqlConnection conn = Conexao.obterConexao();
-                string sql = "UPDATE categoria SET nome  = @nome WHERE id = @id";
-                //string sql = "UPDATE categoria SET nome  = @nome, email = @email WHERE id = @id";
+                string sql = "UPDATE cliente SET nome = @nome, idade = @idade, email = @email WHERE id = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", c.Id);
                 cmd.Parameters.AddWithValue("@nome", c.Nome);
-                //cmd.Parameters.AddWithValue("@email", c.Email);
+                cmd.Parameters.AddWithValue("@idade", c.Idade);
+                cmd.Parameters.AddWithValue("@email", c.Email);
                 cmd.ExecuteNonQuery();
-                return "Categoria editada com sucesso";
+                return "Cliente editado com sucesso";
             }
             catch (Exception e)
             {
                 return "erro: " + e.Message;
+            }
+        }
+
+        public static string salvarOuEditar(Cliente c)
+        {
+            try
+            {
+                MySqlConnection conn = Conexao.obterConexao();
+                string sql;
+                MySqlCommand cmd = new MySqlCommand("", conn);
+
+                if (c.Id == 0)
+                {
+                    sql = "INSERT INTO cliente VALUES (null, @nome, @email, @idade)";
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@nome", c.Nome);
+                    cmd.Parameters.AddWithValue("@idade", c.Idade);
+                    cmd.Parameters.AddWithValue("@email", c.Email);
+                    cmd.ExecuteNonQuery();
+                    return "Cliente salvo com sucesso";
+                }
+                else
+                {
+                    sql = "UPDATE cliente SET nome = @nome, idade = @idade, email = @email WHERE id = @id";
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@id", c.Id);
+                    cmd.Parameters.AddWithValue("@nome", c.Nome);
+                    cmd.Parameters.AddWithValue("@idade", c.Idade);
+                    cmd.Parameters.AddWithValue("@email", c.Email);
+                    cmd.ExecuteNonQuery();
+                    return "Cliente editado com sucesso";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Erro: " + ex.Message;
             }
         }
     }
