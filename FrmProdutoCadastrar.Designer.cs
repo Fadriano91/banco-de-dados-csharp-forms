@@ -33,6 +33,8 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.lblQuantidadeEstoque = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.lblIdCategoria = new System.Windows.Forms.Label();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtNome
@@ -46,7 +48,7 @@
             // txtQuantidadeEstoque
             // 
             this.txtQuantidadeEstoque.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantidadeEstoque.Location = new System.Drawing.Point(36, 132);
+            this.txtQuantidadeEstoque.Location = new System.Drawing.Point(36, 165);
             this.txtQuantidadeEstoque.Name = "txtQuantidadeEstoque";
             this.txtQuantidadeEstoque.Size = new System.Drawing.Size(109, 26);
             this.txtQuantidadeEstoque.TabIndex = 1;
@@ -65,7 +67,7 @@
             // 
             this.lblQuantidadeEstoque.AutoSize = true;
             this.lblQuantidadeEstoque.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantidadeEstoque.Location = new System.Drawing.Point(32, 110);
+            this.lblQuantidadeEstoque.Location = new System.Drawing.Point(32, 143);
             this.lblQuantidadeEstoque.Name = "lblQuantidadeEstoque";
             this.lblQuantidadeEstoque.Size = new System.Drawing.Size(189, 19);
             this.lblQuantidadeEstoque.TabIndex = 3;
@@ -75,7 +77,7 @@
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnSalvar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(36, 182);
+            this.btnSalvar.Location = new System.Drawing.Point(36, 197);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(185, 32);
             this.btnSalvar.TabIndex = 6;
@@ -83,12 +85,32 @@
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // lblIdCategoria
+            // 
+            this.lblIdCategoria.AutoSize = true;
+            this.lblIdCategoria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdCategoria.Location = new System.Drawing.Point(32, 88);
+            this.lblIdCategoria.Name = "lblIdCategoria";
+            this.lblIdCategoria.Size = new System.Drawing.Size(83, 19);
+            this.lblIdCategoria.TabIndex = 7;
+            this.lblIdCategoria.Text = "Categoria";
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(36, 110);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(185, 21);
+            this.cmbCategoria.TabIndex = 8;
+            // 
             // FrmProdutoCadastrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(273, 307);
+            this.Controls.Add(this.cmbCategoria);
+            this.Controls.Add(this.lblIdCategoria);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.lblQuantidadeEstoque);
             this.Controls.Add(this.lblNome);
@@ -108,5 +130,7 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblQuantidadeEstoque;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label lblIdCategoria;
+        private System.Windows.Forms.ComboBox cmbCategoria;
     }
 }

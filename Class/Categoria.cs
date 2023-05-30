@@ -109,6 +109,17 @@ namespace Tarefa_SalvarMySql.Class
                 return "erro: " + e.Message;
             }
         }
+
+        public static MySqlDataReader carregar()
+        {
+            MySqlConnection conn = Conexao.obterConexao();
+            string sql = "SELECT * FROM categoria";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader res = cmd.ExecuteReader();
+
+            return res;
+        }
+
     }
 }
 

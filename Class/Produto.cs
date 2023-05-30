@@ -12,20 +12,23 @@ namespace Tarefa_SalvarMySql.Class
         private int id;
         private string nome;
         private int quantidadeEstoque;
+        private int id_categoria;
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
         public int QuantidadeEstoque { get => quantidadeEstoque; set => quantidadeEstoque = value; }
+        public int Id_categoria { get => id_categoria; set => id_categoria = value; }
 
         public static string salvar( Produto prod )
         {
             try
             {
                 MySqlConnection conn = Conexao.obterConexao();
-                string sql = "INSERT INTO produto VALUES (null, @nome, @quantidadeEstoque)";
+                string sql = "INSERT INTO produto VALUES (null, @nome, @quantidadeEstoque, @id_categoria)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@nome", prod.nome);
                 cmd.Parameters.AddWithValue("@quantidadeEstoque", prod.quantidadeEstoque);
+                cmd.Parameters.AddWithValue("@id_categoria", prod.id_categoria);
                 cmd.ExecuteNonQuery();
                 return "salvo com sucesso";
             }
@@ -38,7 +41,7 @@ namespace Tarefa_SalvarMySql.Class
         public static string listar()
         {
             MySqlConnection conn = Conexao.obterConexao();
-            string sql = "SELECT * FROM produto";
+            string sql = "SELECT  p.id, p.nome, p.quantidadeEstoque, c.nome as categoria FROM produto p INNER JOIN categoria c ON c.id = p.id_categoria";
             MySqlCommand cmd = new MySqlCommand( sql, conn);
             MySqlDataReader res = cmd.ExecuteReader();
             string lista = "Lista de produtos \n";
@@ -49,6 +52,7 @@ namespace Tarefa_SalvarMySql.Class
                     lista += "ID: " + res["id"].ToString();
                     lista += " - Produto: " + res["nome"].ToString();
                     lista += " - Quantidade no Estoque: " + res["quantidadeEstoque"].ToString();
+                    lista += " - Categoria: " + res["categoria"].ToString();
                     lista += "\n";
                 }
             }
